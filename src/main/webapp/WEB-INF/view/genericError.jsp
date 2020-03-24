@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Problema</title>
 </head>
 <body>
 	Si è verificato un errore inatteso

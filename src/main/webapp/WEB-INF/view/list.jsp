@@ -24,14 +24,21 @@ th, td {
 </head>
 
 <body>
-	<table>
+<table>
 		<thead>
 			<tr>
-				<th>Codice</th>
-				<th>Descrizione</th>
-				<th>Data</th>
-				<th>Tipo</th>
-				<th>Numero pagine</th>
+				<th>Titolo Anime</th>
+				<th>itolo Anime Jap</th>
+				<th>Nazionalità Anime</th>
+				<th>Categoria Anime</th>
+				<th>Genere Anime</th>
+				<th>Anno Anime</th>
+				<th>Anime tratto da</th>
+				<th>Stagioni Anime</th>
+				<th>Episodi Anime</th>
+				<th>Stato Anime Jap</th>
+				<th>Stato Anime Ita</th>
+				<th>Doppiaggio Anime Ita</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,15 +46,23 @@ th, td {
 				<tr>
 					<td>
 						<a href='<spring:url value="detail?docId=${item.id}"></spring:url>'>
-							${item.codDoc}
+							${item.titAni}
 						</a>
 					</td>
-					<td>${item.descDoc}</td>
+					<td>${item.titAniJ}</td>
+					<td>${item.nazAni}</td>
+					<td>${item.categAni}</td>
+					<td>${item.genAni}</td>
 					<td>
-						<fmt:formatDate value="${item.dataDoc}" pattern="dd/MM/yyyy"/>
+						<fmt:formatDate value="${item.yearAni}" pattern="yyyy"/>
 					</td>
-					<td>${item.tipoDoc}</td>
-					<td>${item.numPagine}</td>
+					<td>${item.fromAni}</td>
+					<td>${item.seasAni}</td>
+					<td>${item.epAni}</td>
+					<td>${item.stateAniJ}</td>
+					<td>${item.stateAni}</td>
+					<td>${item.dubAni}</td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>

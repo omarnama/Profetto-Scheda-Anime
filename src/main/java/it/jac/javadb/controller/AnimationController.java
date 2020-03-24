@@ -24,9 +24,9 @@ import it.jac.javadb.service.AnimationService;
 
 @Controller
 @RequestMapping("/jac")
-public class DocumentController {
+public class AnimationController {
 
-	private Logger log = LoggerFactory.getLogger(DocumentController.class);
+	private Logger log = LoggerFactory.getLogger(AnimationController.class);
 	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
