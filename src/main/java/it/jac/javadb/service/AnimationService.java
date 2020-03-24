@@ -13,12 +13,12 @@ import it.jac.javadb.dao.DocumentoRepository;
 import it.jac.javadb.entity.Documento;
 
 @Service
-public class DocumentoService {
+public class AnimationService {
 
-	private static final Logger log = LogManager.getLogger(DocumentoService.class);
+	private static final Logger log = LogManager.getLogger(AnimationService.class);
 
 	@Autowired
-	private DocumentoRepository repository;
+	private AnimationRepository repository;
 	
 	public String testConnessione() {
 		
@@ -31,11 +31,11 @@ public class DocumentoService {
 		return test ? "ok" : "ko";
 	}
 	
-	public List<Documento> findAll() {
+	public List<Animation> findAll() {
 		return IteratorUtils.toList(this.repository.findAll().iterator());
 	}
 	
-	public void creaDocumento(Documento doc) {
+	public void creaAnimation(Documento doc) {
 		
 		doc.setCreationTime(new Date());
 		doc.setCreationUser("system");
@@ -43,24 +43,24 @@ public class DocumentoService {
 		this.repository.save(doc);
 	}
 	
-	public void eliminaDocumento(Documento doc) {
+	public void eliminaAnimation(Documento doc) {
 		
 		this.repository.delete(doc);
 	}
 
-	public Documento findDocumentoById(Integer id) {
+	public Documento findAnimationById(Integer id) {
 
 		return this.repository.findById(id).get();
 	}
 
-	public List<Documento> findOnlyValid() {
+	public List<Animation> findOnlyValid() {
 		
 		return this.repository.findOnlyValid();
 	}
 	
-	public void modificaDocumento(int id, String value) {
+	public void modificaAnimation(int id, String value) {
 
-		Documento doc = findDocumentoById(id);
+		Documento doc = findAnimationById(id);
 		doc.setCodDoc(value);
 		
 		this.repository.save(doc);

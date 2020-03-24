@@ -28,7 +28,7 @@ public class Animation {
 		private String nazAni;
 		
 		@Column(name = "categ_Ani", length = 45)
-		private String categ;
+		private String categAni;
 		
 		@Column(name = "gen_ani", length = 20)
 		private String genAni;
@@ -92,12 +92,12 @@ public class Animation {
 			this.nazAni = nazAni;
 		}
 
-		public String getCateg() {
-			return categ;
+		public String getCategAni() {
+			return categAni;
 		}
 
-		public void setCateg(String categ) {
-			this.categ = categ;
+		public void setCategAni(String categAni) {
+			this.categAni = categAni;
 		}
 
 		public String getGenAni() {
@@ -183,13 +183,15 @@ public class Animation {
 		@Override
 		public String toString() {
 			return "Animation [id=" + id + ", titAni=" + titAni + ", titAniJ=" + titAniJ + ", nazAni=" + nazAni
-					+ ", categ=" + categ + ", genAni=" + genAni + ", yearAni=" + yearAni + ", fromAni=" + fromAni
+					+ ", categAni=" + categAni + ", genAni=" + genAni + ", yearAni=" + yearAni + ", fromAni=" + fromAni
 					+ ", seasAni=" + seasAni + ", epAni=" + epAni + ", stateAniJ=" + stateAniJ + ", stateAni="
 					+ stateAni + ", dubAni=" + dubAni + ", creationTime=" + creationTime + ", creationUser="
 					+ creationUser + "]";
 		}
+
 		
 }
+
 
 
 

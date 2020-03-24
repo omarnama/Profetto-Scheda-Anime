@@ -6,17 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import it.jac.javadb.entity.Documento;
+import it.jac.javadb.entity.Animation;
 
-public class CustomDocumentoRepositoryImpl implements CustomDocumentoRepository {
+
+public class CustomAnimationRepositoryImpl implements CustomAnimationRepository {
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public List<Documento> findOnlyValid() {
+	public List<Animation> findOnlyValid() {
 		
-		TypedQuery<Documento> query = em.createQuery("from Documento", Documento.class);
+		TypedQuery<Animation> query = em.createQuery("from Animation", Animation.class);
 		return query.getResultList();
 	}
 	
