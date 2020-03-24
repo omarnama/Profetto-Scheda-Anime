@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import it.jac.javadb.controller.validation.DocumentoValidator;
-import it.jac.javadb.dto.AnimationDTO;
+import it.jac.javadb.controller.validation.AnimationValidator;
+import it.jac.javadb.dto.AnimationATO;
 import it.jac.javadb.entity.Animation;
 import it.jac.javadb.service.AnimationService;
 
@@ -30,7 +30,7 @@ public class AnimationController {
 	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
-		binder.setValidator(new DocumentoValidator());
+		binder.setValidator(new AnimationValidator());
 	}
 	
 	@Autowired
@@ -51,19 +51,19 @@ public class AnimationController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("insert");
 		
-		AnimationDTO dto = new AnimationDTO();
-		mav.addObject("dto", dto);
+		AnimationATO ato = new AnimationATO();
+		mav.addObject("ato", ato);
 		
 		return mav;
 	}
 
 	@RequestMapping(path = "/insert", method = RequestMethod.POST)
-	public ModelAndView sendDocumentInfo(
-			@ModelAttribute("dto") @Validated AnimationDTO dto, 
+	public ModelAndView sendAnimationnfo(
+			@ModelAttribute("ato") @Validated AnimationATO ato, 
 			BindingResult bindingResult) {
 		
-		log.debug("coddoc {}", dto.getTitAni());
-		log.debug("datadoc {}", dto.getYearAni());
+		log.debug("codani {}", ato.getTitAni());
+		log.debug("yearani {}", ato.getYearAni());
 
 		ModelAndView mav = new ModelAndView();
 
@@ -78,10 +78,10 @@ public class AnimationController {
 			// posso procedere con il salvataggio dei dati su DB
 			mav.setViewName("redirect:/jac/list");
 			
-			Animation doc = new Animation();
-			BeanUtils.copyProperties(dto, doc);
+			Animation ani = new Animation();
+			BeanUtils.copyProperties(ato, ani);
 			
-			service.creaAnimation(doc);
+			service.creaAnimation(ani);
 		}
 		
 		return mav;
@@ -93,17 +93,17 @@ public class AnimationController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("update");
 		
-		Animation documento = service.findAnimationById(Integer.parseInt(parId));
-		if (documento != null) {
+		Animation animation = service.findAnimationById(Integer.parseInt(parId));
+		if (animation != null) {
 			
-			AnimationDTO dto = new AnimationDTO();
-			BeanUtils.copyProperties(documento, dto);
+			AnimationATO ato = new AnimationATO();
+			BeanUtils.copyProperties(animation, ato);
 			
-			mav.addObject("dto", dto);
+			mav.addObject("ato", ato);
 			
 		} else {
 			
-			throw new IllegalArgumentException("Document id " + parId + " is not valid");
+			throw new IllegalArgumentException("Anime id " + parId + " is not valid");
 			
 		}
 		return mav;
@@ -122,7 +122,7 @@ public class AnimationController {
 	}	
 
 	@RequestMapping(path = "/detail", method = RequestMethod.GET)
-	public ModelAndView pageDetail(@RequestParam(name = "docId") String parId) {
+	public ModelAndView pageDetail(@RequestParam(name = "aniId") String parId) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("detail");
@@ -130,11 +130,11 @@ public class AnimationController {
 		Animation animation = service.findAnimationById(Integer.parseInt(parId));
 		if (animation != null) {
 			
-			AnimationDTO dto = new AnimationDTO();
+			AnimationATO ato = new AnimationATO();
 			// utilità
-			BeanUtils.copyProperties(animation, dto);
+			BeanUtils.copyProperties(animation, ato);
 			
-			mav.addObject("dto", dto);
+			mav.addObject("dto", ato);
 			
 		} else {
 			

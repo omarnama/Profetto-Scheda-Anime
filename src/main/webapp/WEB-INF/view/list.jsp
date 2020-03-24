@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Elenco Documenti</title>
+<title>Elenco Anime</title>
 <style type="text/css">
 table {
 	border: 1px solid gray;

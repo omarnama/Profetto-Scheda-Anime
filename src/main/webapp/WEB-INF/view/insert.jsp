@@ -24,7 +24,7 @@
 	<h4><spring:message code="page.title.insert" ></spring:message> </h4>
 	
 	<div class="col-8">
-		<form:form method="POST" modelAttribute="dto">
+		<form:form method="POST" modelAttribute="ato">
 	
 			<div class="form-group">
 				<label for="titAni">Titolo Anime</label>

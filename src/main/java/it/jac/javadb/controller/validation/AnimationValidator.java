@@ -5,15 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import it.jac.javadb.dto.AnimationDTO;
+import it.jac.javadb.dto.AnimationATO;
 
-public class DocumentoValidator implements Validator {
+public class AnimationValidator implements Validator {
 
-	private Logger log = LoggerFactory.getLogger(DocumentoValidator.class);
+	private Logger log = LoggerFactory.getLogger(AnimationValidator.class);
 			
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return AnimationDTO.class.equals(clazz);
+		return AnimationATO.class.equals(clazz);
 	}
 
 	@Override

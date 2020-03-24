@@ -2,7 +2,7 @@ package it.jac.javadb.dto;
 
 import java.util.Date;
 
-public class AnimationDTO {
+public class AnimationATO {
 	private String idAni;
 	
 	private String titAni;
@@ -15,7 +15,7 @@ public class AnimationDTO {
 	
 	private String genAni;
 	
-	private String yearAni;
+	private Date yearAni;
 	
 	private String fromAni;
 	
@@ -79,11 +79,11 @@ public class AnimationDTO {
 		this.genAni = genAni;
 	}
 
-	public String getYearAni() {
+	public Date getYearAni() {
 		return yearAni;
 	}
 
-	public void setYearAni(String yearAni) {
+	public void setYearAni(Date yearAni) {
 		this.yearAni = yearAni;
 	}
 
@@ -143,12 +143,6 @@ public class AnimationDTO {
 		this.creationTime = creationTime;
 	}
 
-	@Override
-	public String toString() {
-		return "AnimationDTO [idAni=" + idAni + ", titAni=" + titAni + ", titAniJ=" + titAniJ + ", nazAni=" + nazAni
-				+ ", categAni=" + categAni + ", genAni=" + genAni + ", yearAni=" + yearAni + ", fromAni=" + fromAni
-				+ ", seasAni=" + seasAni + ", epAni=" + epAni + ", stateAniJ=" + stateAniJ + ", stateAni=" + stateAni
-				+ ", dubAni=" + dubAni + ", creationTime=" + creationTime + "]";
-	}
+	
 }
 
