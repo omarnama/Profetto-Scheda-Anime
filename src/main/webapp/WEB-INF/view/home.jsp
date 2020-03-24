@@ -9,9 +9,9 @@
 <body>
 	Menu
 	<br>
-	<a href="insert">Inserisci documento</a>
+	<a href="insert">Inserisci anime</a>
 	<br>
-	<a href="list">Lista documenti</a>
+	<a href="list">Lista anime</a>
 	<br>
 </body>
 </html>

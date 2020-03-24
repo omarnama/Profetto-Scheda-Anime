@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import it.jac.javadb.entity.Documento;
+import it.jac.javadb.entity.Animation;
 
 @Controller
 public class TestJspController {
@@ -28,9 +28,9 @@ public class TestJspController {
 
 		mav.addObject("numero", 100);
 		
-		Documento doc = new Documento();
-		doc.setCodDoc("cod1");
-		doc.setDataDoc(new Date());
+		Animation doc = new Animation();
+		doc.setTitAni("cod1");
+		doc.setYearAni(new Date());
 		
 		mav.addObject("obj", doc);
 		

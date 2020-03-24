@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.jac.javadb.controller.validation.DocumentoValidator;
-import it.jac.javadb.dto.DocumentoDTO;
-import it.jac.javadb.entity.Documento;
-import it.jac.javadb.service.DocumentoService;
+import it.jac.javadb.dto.AnimationDTO;
+import it.jac.javadb.entity.Animation;
+import it.jac.javadb.service.AnimationService;
 
 @Controller
 @RequestMapping("/jac")
@@ -34,7 +34,7 @@ public class DocumentController {
 	}
 	
 	@Autowired
-	private DocumentoService service;
+	private AnimationService service;
 	
 	@RequestMapping(path = "/home", method = RequestMethod.GET)
 	public ModelAndView home() {
@@ -51,7 +51,7 @@ public class DocumentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("insert");
 		
-		DocumentoDTO dto = new DocumentoDTO();
+		AnimationDTO dto = new AnimationDTO();
 		mav.addObject("dto", dto);
 		
 		return mav;
@@ -59,11 +59,11 @@ public class DocumentController {
 
 	@RequestMapping(path = "/insert", method = RequestMethod.POST)
 	public ModelAndView sendDocumentInfo(
-			@ModelAttribute("dto") @Validated DocumentoDTO dto, 
+			@ModelAttribute("dto") @Validated AnimationDTO dto, 
 			BindingResult bindingResult) {
 		
-		log.debug("coddoc {}", dto.getCodDoc());
-		log.debug("datadoc {}", dto.getDataDoc());
+		log.debug("coddoc {}", dto.getTitAni());
+		log.debug("datadoc {}", dto.getYearAni());
 
 		ModelAndView mav = new ModelAndView();
 
@@ -78,10 +78,10 @@ public class DocumentController {
 			// posso procedere con il salvataggio dei dati su DB
 			mav.setViewName("redirect:/jac/list");
 			
-			Documento doc = new Documento();
+			Animation doc = new Animation();
 			BeanUtils.copyProperties(dto, doc);
 			
-			service.creaDocumento(doc);
+			service.creaAnimation(doc);
 		}
 		
 		return mav;
@@ -93,10 +93,10 @@ public class DocumentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("update");
 		
-		Documento documento = service.findDocumentoById(Integer.parseInt(parId));
+		Animation documento = service.findAnimationById(Integer.parseInt(parId));
 		if (documento != null) {
 			
-			DocumentoDTO dto = new DocumentoDTO();
+			AnimationDTO dto = new AnimationDTO();
 			BeanUtils.copyProperties(documento, dto);
 			
 			mav.addObject("dto", dto);
@@ -115,7 +115,7 @@ public class DocumentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("list");
 		
-		List<Documento> list = service.findAll();
+		List<Animation> list = service.findAll();
 		mav.addObject("list", list);
 		
 		return mav;
@@ -127,18 +127,18 @@ public class DocumentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("detail");
 		
-		Documento documento = service.findDocumentoById(Integer.parseInt(parId));
-		if (documento != null) {
+		Animation animation = service.findAnimationById(Integer.parseInt(parId));
+		if (animation != null) {
 			
-			DocumentoDTO dto = new DocumentoDTO();
+			AnimationDTO dto = new AnimationDTO();
 			// utilità
-			BeanUtils.copyProperties(documento, dto);
+			BeanUtils.copyProperties(animation, dto);
 			
 			mav.addObject("dto", dto);
 			
 		} else {
 			
-			throw new IllegalArgumentException("Document id " + parId + " is not valid");
+			throw new IllegalArgumentException("Anime id " + parId + " is not valid");
 			
 		}
 		return mav;

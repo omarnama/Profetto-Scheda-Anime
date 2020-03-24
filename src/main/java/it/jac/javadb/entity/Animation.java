@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "animation")
+@Table(name = "Animation")
 public class Animation {
 	
 		@Id

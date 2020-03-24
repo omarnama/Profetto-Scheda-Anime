@@ -9,8 +9,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.jac.javadb.dao.DocumentoRepository;
-import it.jac.javadb.entity.Documento;
+import it.jac.javadb.dao.AnimationRepository;
+import it.jac.javadb.entity.Animation;
+
+
 
 @Service
 public class AnimationService {
@@ -35,20 +37,20 @@ public class AnimationService {
 		return IteratorUtils.toList(this.repository.findAll().iterator());
 	}
 	
-	public void creaAnimation(Documento doc) {
+	public void creaAnimation(Animation ani) {
 		
-		doc.setCreationTime(new Date());
-		doc.setCreationUser("system");
+		ani.setCreationTime(new Date());
+		ani.setCreationUser("system");
 		
-		this.repository.save(doc);
+		this.repository.save(ani);
 	}
 	
-	public void eliminaAnimation(Documento doc) {
+	public void eliminaAnimation(Animation ani) {
 		
-		this.repository.delete(doc);
+		this.repository.delete(ani);
 	}
 
-	public Documento findAnimationById(Integer id) {
+	public Animation findAnimationById(Integer id) {
 
 		return this.repository.findById(id).get();
 	}
@@ -60,9 +62,9 @@ public class AnimationService {
 	
 	public void modificaAnimation(int id, String value) {
 
-		Documento doc = findAnimationById(id);
-		doc.setCodDoc(value);
+		Animation ani = findAnimationById(id);
+		ani.setTitAni(value); //ani.setCodDoc(value);
 		
-		this.repository.save(doc);
+		this.repository.save(ani);
 	}
 }
