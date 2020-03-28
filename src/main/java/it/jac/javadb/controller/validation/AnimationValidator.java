@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import it.jac.javadb.dto.AnimationATO;
+import it.jac.javadb.dto.AnimationDTO;
 
 public class AnimationValidator implements Validator {
 
@@ -13,7 +13,7 @@ public class AnimationValidator implements Validator {
 			
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return AnimationATO.class.equals(clazz);
+		return AnimationDTO.class.equals(clazz);
 	}
 
 	@Override

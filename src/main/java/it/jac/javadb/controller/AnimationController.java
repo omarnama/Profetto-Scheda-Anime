@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.jac.javadb.controller.validation.AnimationValidator;
-import it.jac.javadb.dto.AnimationATO;
+import it.jac.javadb.dto.AnimationDTO;
 import it.jac.javadb.entity.Animation;
 import it.jac.javadb.service.AnimationService;
 
@@ -51,7 +51,7 @@ public class AnimationController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("insert");
 		
-		AnimationATO ato = new AnimationATO();
+		AnimationDTO ato = new AnimationDTO();
 		mav.addObject("ato", ato);
 		
 		return mav;
@@ -59,7 +59,7 @@ public class AnimationController {
 
 	@RequestMapping(path = "/insert", method = RequestMethod.POST)
 	public ModelAndView sendAnimationnfo(
-			@ModelAttribute("ato") @Validated AnimationATO ato, 
+			@ModelAttribute("ato") @Validated AnimationDTO ato, 
 			BindingResult bindingResult) {
 		
 		log.debug("codani {}", ato.getTitAni());
@@ -96,7 +96,7 @@ public class AnimationController {
 		Animation animation = service.findAnimationById(Integer.parseInt(parId));
 		if (animation != null) {
 			
-			AnimationATO ato = new AnimationATO();
+			AnimationDTO ato = new AnimationDTO();
 			BeanUtils.copyProperties(animation, ato);
 			
 			mav.addObject("ato", ato);
@@ -130,7 +130,7 @@ public class AnimationController {
 		Animation animation = service.findAnimationById(Integer.parseInt(parId));
 		if (animation != null) {
 			
-			AnimationATO ato = new AnimationATO();
+			AnimationDTO ato = new AnimationDTO();
 			// utilità
 			BeanUtils.copyProperties(animation, ato);
 			

@@ -2,7 +2,7 @@ package it.jac.javadb.dto;
 
 import java.util.Date;
 
-public class AnimationATO {
+public class AnimationDTO {
 	private String idAni;
 	
 	private String titAni;
