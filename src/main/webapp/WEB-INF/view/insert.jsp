@@ -24,7 +24,7 @@
 	<h4><spring:message code="page.title.insert" ></spring:message> </h4>
 	
 	<div class="col-8">
-		<form:form method="POST" modelAttribute="ato">
+		<form:form method="POST" modelAttribute="dto">
 	
 			<div class="form-group">
 				<label for="titAni">Titolo Anime</label>
@@ -50,12 +50,7 @@
 				<label for="genAni">Genere Anime</label>
 				<form:input type="text" path="genAni" cssClass="form-control"></form:input>
 			</div>
-			<!--  
-			<div class="form-group">
-				<label for="yearAni">Anno Anime</label>
-				<form:input type="text" path="yearAni" cssClass="form-control"></form:input>
-			</div>
-			-->
+
 			<div class="form-group">
 				<label for="yearAni">Anno Anime</label>
 				<spring:bind path="yearAni">
@@ -95,15 +90,6 @@
 				<form:input type="text" path="dubAni" cssClass="form-control"></form:input>
 			</div>
 			
-			<!--  
-			<div class="form-group">		
-				<label for="numPagine">Num Pagine</label>
-				<spring:bind path="numPagine">
-					<form:errors path="numPagine" cssStyle="font-weight:bolder;color:red"/>
-					<form:input type="text" path="numPagine" cssClass="form-control"></form:input>
-				</spring:bind>
-			</div>
-			-->
 			<button class="btn btn-success">Conferma dati</button>
 		</form:form>
 	</div>

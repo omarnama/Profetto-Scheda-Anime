@@ -42,7 +42,7 @@
 		</div>
 		<div class="form-group">		
 			<label for="yearAni">Anno Anime</label>
-			<fmt:formatDate value="${ato.yearAni}" pattern="yyyy"/>
+			<fmt:formatDate value="${ato.yearAni}" pattern="dd/MM/yyyy"/>
 		</div>
 		<div class="form-group">
 			<label for="fromAni">Anime tratto da</label>

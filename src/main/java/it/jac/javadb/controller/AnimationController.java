@@ -51,19 +51,19 @@ public class AnimationController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("insert");
 		
-		AnimationDTO ato = new AnimationDTO();
-		mav.addObject("ato", ato);
+		AnimationDTO dto = new AnimationDTO();
+		mav.addObject("dto", dto);
 		
 		return mav;
 	}
 
 	@RequestMapping(path = "/insert", method = RequestMethod.POST)
 	public ModelAndView sendAnimationnfo(
-			@ModelAttribute("ato") @Validated AnimationDTO ato, 
+			@ModelAttribute("dto") @Validated AnimationDTO dto, 
 			BindingResult bindingResult) {
 		
-		log.debug("codani {}", ato.getTitAni());
-		log.debug("yearani {}", ato.getYearAni());
+		log.debug("codani {}", dto.getTitAni());
+		log.debug("yearani {}", dto.getYearAni());
 
 		ModelAndView mav = new ModelAndView();
 
@@ -79,7 +79,7 @@ public class AnimationController {
 			mav.setViewName("redirect:/jac/list");
 			
 			Animation ani = new Animation();
-			BeanUtils.copyProperties(ato, ani);
+			BeanUtils.copyProperties(dto, ani);
 			
 			service.creaAnimation(ani);
 		}
@@ -96,10 +96,10 @@ public class AnimationController {
 		Animation animation = service.findAnimationById(Integer.parseInt(parId));
 		if (animation != null) {
 			
-			AnimationDTO ato = new AnimationDTO();
-			BeanUtils.copyProperties(animation, ato);
+			AnimationDTO dto = new AnimationDTO();
+			BeanUtils.copyProperties(animation, dto);
 			
-			mav.addObject("ato", ato);
+			mav.addObject("dto", dto);
 			
 		} else {
 			
@@ -130,11 +130,11 @@ public class AnimationController {
 		Animation animation = service.findAnimationById(Integer.parseInt(parId));
 		if (animation != null) {
 			
-			AnimationDTO ato = new AnimationDTO();
+			AnimationDTO dto = new AnimationDTO();
 			// utilità
-			BeanUtils.copyProperties(animation, ato);
+			BeanUtils.copyProperties(animation, dto);
 			
-			mav.addObject("dto", ato);
+			mav.addObject("dto", dto);
 			
 		} else {
 			

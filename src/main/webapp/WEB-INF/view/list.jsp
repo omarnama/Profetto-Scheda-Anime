@@ -54,7 +54,7 @@ th, td {
 					<td>${item.categAni}</td>
 					<td>${item.genAni}</td>
 					<td>
-						<fmt:formatDate value="${item.yearAni}" pattern="yyyy"/>
+						<fmt:formatDate value="${item.yearAni}" pattern="dd/MM/yyyy"/>
 					</td>
 					<td>${item.fromAni}</td>
 					<td>${item.seasAni}</td>

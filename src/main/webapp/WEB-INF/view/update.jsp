@@ -24,7 +24,7 @@
 	<h4>Pagina di modifica dell'Anime</h4>
 	
 	<div class="col-8">
-		<form:form method="POST" modelAttribute="ato">
+		<form:form method="POST" modelAttribute="dto">
 			<form:hidden path="idAni"/>
 			
 						<div class="form-group">
