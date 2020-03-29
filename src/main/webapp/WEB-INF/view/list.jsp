@@ -45,7 +45,7 @@ th, td {
 			<c:forEach items="${list}" var="item">
 				<tr>
 					<td>
-						<a href='<spring:url value="detail?docId=${item.id}"></spring:url>'>
+						<a href='<spring:url value="detail?aniId=${item.id}"></spring:url>'>
 							${item.titAni}
 						</a>
 					</td>

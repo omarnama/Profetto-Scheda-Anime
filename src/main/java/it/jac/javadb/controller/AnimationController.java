@@ -88,7 +88,7 @@ public class AnimationController {
 	}
 	
 	@RequestMapping(path = "/update", method = RequestMethod.GET)
-	public ModelAndView pageUpdate(@RequestParam(name = "docId") String parId) {
+	public ModelAndView pageUpdate(@RequestParam(name = "aniId") String parId) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("update");

@@ -22,43 +22,43 @@
 	<div class="col-8">
 		<div class="form-group">
 			<label for="titAni">Titolo Anime</label>
-			<c:out value="${ato.titAni}"></c:out>
+			<c:out value="${dto.titAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="titAniJ">Titolo Anime Jap</label>
-			<c:out value="${ato.titAniJ}"></c:out>
+			<c:out value="${dto.titAniJ}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="nazAni">Nazionalità Anime</label>
-			<c:out value="${ato.nazAni}"></c:out>
+			<c:out value="${dto.nazAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="categAni">Categoria Anime</label>
-			<c:out value="${ato.categAni}"></c:out>
+			<c:out value="${dto.categAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="genAni">Genere Anime</label>
-			<c:out value="${ato.genAni}"></c:out>
+			<c:out value="${dto.genAni}"></c:out>
 		</div>
 		<div class="form-group">		
 			<label for="yearAni">Anno Anime</label>
-			<fmt:formatDate value="${ato.yearAni}" pattern="dd/MM/yyyy"/>
+			<fmt:formatDate value="${dto.yearAni}" pattern="dd/MM/yyyy"/>
 		</div>
 		<div class="form-group">
 			<label for="fromAni">Anime tratto da</label>
-			<c:out value="${ato.fromAni}"></c:out>
+			<c:out value="${dto.fromAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="seasAni">Stagioni Anime</label>
-			<c:out value="${ato.seasAni}"></c:out>
+			<c:out value="${dto.seasAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="epAni">Episodi Anime</label>
-			<c:out value="${ato.epAni}"></c:out>
+			<c:out value="${dto.epAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="stateAniJ">Stato Anime Jap</label>
-			<c:out value="${ato.stateAniJ}"></c:out>
+			<c:out value="${dto.stateAniJ}"></c:out>
 		</div>
 		<div class="form-group">		
 			<label for="stateAni">Stato Anime Ita</label>
@@ -66,11 +66,11 @@
 		</div>
 		<div class="form-group">		
 			<label for="dubAni">Doppiaggio Anime Ita</label>
-			<c:out value="${ato.dubAni}"></c:out>
+			<c:out value="${dto.dubAni}"></c:out>
 		</div>
 		<div class="form-group">
 			<label for="creationTime">Creation time</label>
-			<c:out value="${ato.creationTime}"></c:out>
+			<c:out value="${dto.creationTime}"></c:out>
 		</div>
 	</div>
 </body>
