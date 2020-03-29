@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Pwd encode</title>
 </head>
 <body>
-
+	${encodedPwd}
 </body>
 </html>
