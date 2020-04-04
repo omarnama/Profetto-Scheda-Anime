@@ -1,11 +1,13 @@
 package it.jac.javadb.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -18,12 +20,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.jac.javadb.controller.validation.AnimationValidator;
+import it.jac.javadb.controller.validation.TimestampEditor;
 import it.jac.javadb.dto.AnimationDTO;
 import it.jac.javadb.entity.Animation;
 import it.jac.javadb.service.AnimationService;
 
 @Controller
 @RequestMapping("/jac")
+@Secured("ROLE_USER")
 public class AnimationController {
 
 	private Logger log = LoggerFactory.getLogger(AnimationController.class);
@@ -31,6 +35,7 @@ public class AnimationController {
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(new AnimationValidator());
+		binder.registerCustomEditor(Timestamp.class, new TimestampEditor());
 	}
 	
 	@Autowired
@@ -45,6 +50,7 @@ public class AnimationController {
 		return mav;
 	}	
 	
+	@Secured("ROLE_EDIT")
 	@RequestMapping(path = "/insert", method = RequestMethod.GET)
 	public ModelAndView pageInsert() {
 		

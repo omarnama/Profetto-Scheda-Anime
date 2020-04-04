@@ -1,0 +1,11 @@
+test 1 (can insert and get detail form user)
+1234
+
+test 2 (can only show list, not enter a new anime)
+123 
+
+test (access denied)
+0000
+
+TO-DO:
+Adding traduction to eng

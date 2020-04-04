@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import it.jac.javadb.dao.UserRepository;
+import it.jac.javadb.entity.User;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {
@@ -22,7 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		it.jac.javadb.entity.User user = userRepository.findByUsername(username);//findByUsername(username)
+		User user = userRepository.findByUsername(username);//findByUsername(username)
         if (user == null) {
         	throw new UsernameNotFoundException(username);
         }
@@ -33,6 +34,8 @@ public class CustomUserDetailService implements UserDetailsService {
         for(String role : tokens) {
         	grantedAuthorities.add(new SimpleGrantedAuthority(role));
         }
+      //ROLE_USER
+      //ROLE_EDIT
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);    
 	}
